@@ -1,2 +1,2 @@
 # Aprendizados da semana
-Essa semana o aprendizado na **Labenu** foi focado no git, que é uma ferramenta para versionamento de software. Através do git um único software pode ser desenvolvido por vários programadores. Em analogia brusca pode se dizer que o git disponibiliza uma cópia do app para que cada desenvolvedor possa trabalhar. Cada uma dessas cópias estão ligadas a um repositório central em núvem. Dessa maneira cada atualização feita é analisada pelo repositório central, e caso seja aprovada, é posta como nova atualização para o software.
+
