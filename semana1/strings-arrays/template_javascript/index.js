@@ -55,3 +55,5 @@ const removida = listaDeTarefas.splice(tarefaRealizada, 1)
 
 console.log(listaDeTarefas)
 
+
+
