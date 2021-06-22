@@ -18,7 +18,7 @@ console.log(filme.transmissoesHoje[2])
 
 //Matheus Nachtergaele
 //Virginia Cavendish
-//Nada foi impresso no console
+//{canal: "Globo", horario: "14h"}
 
 const cachorro = {
 	nome: "Juca", 
@@ -35,8 +35,24 @@ console.log(gato)
 console.log(tartaruga)
 
 /*
-{canal: "Globo", horario: "14h"}
 index.js:31 {nome: "Juca", idade: 3, raca: "SRD"}
 index.js:32 {nome: "Juba", idade: 3, raca: "SRD"}
 index.js:33 {nome: "Jubo", idade: 3, raca: "SRD"}
+Permite inserir um objeto dentro de outro objeto
 */
+
+function minhaFuncao(objeto, propriedade) {
+	return objeto[propriedade]
+}
+
+const pessoa = {
+  nome: "Caio", 
+  idade: 23, 
+  backender: false
+}
+
+console.log(minhaFuncao(pessoa, "backender"))
+console.log(minhaFuncao(pessoa, "altura"))
+
+//false: Foi impresso devido à esse ser o valor definido no objeto
+//undefined: Foi impresso porque a propriedade altura não está definida
