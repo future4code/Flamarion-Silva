@@ -56,3 +56,62 @@ console.log(minhaFuncao(pessoa, "altura"))
 
 //false: Foi impresso devido à esse ser o valor definido no objeto
 //undefined: Foi impresso porque a propriedade altura não está definida
+
+const eu = {
+	nome: 'Flamarion',
+	apelido: ['Fran', 'OZ', 'Pato']
+}
+
+const euDeNovo = {...eu, apelido: ['Dipreto', 'Negão', 'Maluco Beleza']}
+
+function nomeEApelido(objeto){
+	console.log(`Eu sou ${objeto.nome}, mas pode me chamar de: ${objeto.apelido[0]}, ${objeto.apelido[1]} ou ${objeto.apelido[2]}`)
+}
+
+nomeEApelido(euDeNovo)
+
+const obj = {
+	nome: prompt('Informe o seu nome:'),
+	idade: Number(prompt('Informe sua idade:')),
+	profissao: prompt('Informe sua profissão:')
+}
+
+
+function dadosDosObjetos(prop){
+	let valNome = prop.nome
+	let caracNome = prop.nome.length
+	let valIdade = prop.idade
+	let valProfissao = prop.profissao
+	let caracProfissao = prop.profissao.length
+	
+	return [valNome, caracNome, valIdade, valProfissao, caracProfissao]
+}
+
+console.log(dadosDosObjetos(obj))
+
+//Neste caso não entendi porque a criação de dois objetos com as mesmas propriedades e como a função trataria esses dois objetos como parâmetros, por isso deixei apenas um
+
+const carrinho = []
+const fruta1 = {
+	nome: 'maçã',
+	disponibilidade: true
+}
+const fruta2 = {
+	nome: 'uva',
+	disponibilidade: true
+}
+const fruta3 = {
+	nome: 'laranja',
+	disponibilidade: true
+}
+
+function frutas(fruta){
+	let arr = carrinho.push(fruta)	
+}
+
+frutas(fruta1)
+frutas(fruta2)
+frutas(fruta3)
+
+console.log(carrinho)
+
