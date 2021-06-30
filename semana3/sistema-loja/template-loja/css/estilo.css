@@ -1,0 +1,43 @@
+body{
+    background-color: blue;
+}
+
+.cabecalho{
+    text-align: center;
+    margin-top: 50px;
+}
+
+nav{
+    position: absolute;
+    top: 15px;    
+}
+
+.menu{
+    background-color: aqua;
+    position: relative;
+    padding: 10px;
+    text-decoration: none;
+    border-radius: 20px;
+}
+
+img{
+    width: 70px;
+    height: 70px;
+}
+
+.imgContaier{
+    text-align: center;
+}
+
+.corpo{
+    width: 800px;
+    height: 400px;
+    margin-left: 220px;
+    margin-top: 10px;    
+}
+
+footer{
+    margin-top: 40px;
+    text-align: center;
+}
+

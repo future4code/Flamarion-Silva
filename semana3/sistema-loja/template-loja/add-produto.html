@@ -5,21 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Adicionar Produto</title>
+    <link rel="stylesheet" href="css/estilo.css">
+    <link rel="stylesheet" href="css/estiloForm.css">
 </head>
 <body>
-    <div>
-        <p>Flash Modas</p>
-    </div>
-    
-    <div>
-        <a href="index.html">Página Inicial</a>
-        <a href="ctrl-estoque.html">Controle de Estoque</a>
-        <a href="add-produto.html">Adicionar Produto</a>
-        <a href="funcionarios">Funcionários</a>
-    </div>
-
-    
-    <h2>Adicionar Produto</h2>
+    <header class="cabecalho">
+        <h1>Adicionar Produto</h1>
+    </header>
+    <nav>
+        <div>
+            <a href="index.html" class="menu">Página Inicial</a>
+            <a href="ctrl-estoque.html" class="menu">Controle de Estoque</a>
+            <a href="add-produto.html" class="menu">Adicionar Produto</a>
+            <a href="funcionarios.html" class="menu">Funcionários</a>
+        </div>
+    </nav>
+        
     <form action="">
         <div>
             <label for="link-foto">Link para foto: </label>
@@ -27,9 +28,11 @@
         </div>
         
         <div>
-            <label for="descricao">Descrição do produto: </label>
-            <!-- Adicione o id apropriado para o input abaixo -->
-            <input type="text" id="desc" name="descrição">
+            <p>
+                <label for="descricao">Descrição do produto: </label>
+                <!-- Adicione o id apropriado para o input abaixo -->
+                <input type="text" id="desc" name="descrição">
+            </p>
         </div>
         
         <div>
@@ -39,9 +42,11 @@
         </div>
         
         <div>
-            <!-- Preencha as propriedades necessárias para os elementos abaixo -->
-            <label>Quantidade disponível: </label>
-            <input>
+            <p>
+                <!-- Preencha as propriedades necessárias para os elementos abaixo -->
+                <label>Quantidade disponível: </label>
+                <input>
+            </p>
         </div>
 
         <div class="form-add">
@@ -50,6 +55,17 @@
         </div>
 
     </form>
+    <footer>
+        <div>
+            <p>Siga-nos nas redes sociais!</p>
+    
+            <div>
+                <a href="https://www.facebook.com/" target="blank"><img src="https://image.flaticon.com/icons/png/512/25/25305.png"/></a>
+                <a href="https://www.instagram.com/" target="blank"><img src="https://image.flaticon.com/icons/png/512/25/25425.png"/></a>
+                <a href="https://twitter.com/" target="blank"><img src="https://image.flaticon.com/icons/png/512/8/8800.png"/></a>
+            </div>
+        </div>
+    </footer>
 
 </body>
 </html>
