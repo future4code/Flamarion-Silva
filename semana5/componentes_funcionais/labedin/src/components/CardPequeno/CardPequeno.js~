@@ -1,16 +1,16 @@
 import React from 'react';
 import './CardGrande.css'
 
-
 function CardGrande(props) {
     return (
         <div className="bigcard-container">
             <img src={ props.imagem } />
-            <div>
-                { props.nome }
-                <p>{ props.descricao }</p>
+            
+                { props.email }
                 
-            </div>
+            <img src={ props.imagem } />
+                {props.endereco}
+            
         </div>
     )
 }

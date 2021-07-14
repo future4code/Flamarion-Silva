@@ -1,10 +1,7 @@
 import React from 'react';
 import './App.css';
-import Email from './components/img/email.jpg';
-import Eu from './components/img/eu.png'
-import Endereco from './components/img/endereco.png'
 import CardGrande from './components/CardGrande/CardGrande';
-import CardPequeno from './components/CardPequeno/CardPequeno';
+//import CardPequeno from './components/CardPequeno/CardPequeno';
 import ImagemButton from './components/ImagemButton/ImagemButton';
 
 function App() {
@@ -13,19 +10,19 @@ function App() {
       <div className="page-section-container">
         <h2>Dados pessoais</h2>
         <CardGrande 
-          imagem={Eu} 
+          imagem="img/eu.png" 
           nome="Flamarion" 
           descricao="Olá, me chamo Flamarion, sou estudante de desenvolvimento webfullstack na Labenu. Tenho experiências profissionais em projeção de cinema, callcenter e digitador."
         />
         
-        <CardPequeno 
-          imagem={Email}   
-          email="Email: mesmo245@gmail.com"          
+        <CardGrande 
+          imagem="img/email.jpg" 
+          email="mesmo245@gmail.com"          
         />
         
-        <CardPequeno 
-          imagem={Endereco} 
-          endereco="Endereço: Rua Labenu"          
+        <CardGrande 
+          imagem="img/endereco.jpg" 
+          endereco="Rua Labenu"          
         />
         
         <ImagemButton 

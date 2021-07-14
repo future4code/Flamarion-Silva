@@ -1,14 +1,13 @@
 import React from 'react';
-import './CardGrande.css'
+import './CardPequeno.css'
 
 function CardGrande(props) {
     return (
         <div className="bigcard-container">
             <img src={ props.imagem } />
             
-                { props.email }
-                
-            <img src={ props.imagem } />
+                { props.email }           
+            
                 {props.endereco}
             
         </div>
