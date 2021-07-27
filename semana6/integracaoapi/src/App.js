@@ -3,6 +3,7 @@ import axios from "axios"
 import "./App.css"
 
 const url = "https://us-central1-labenu-apis.cloudfunctions.net/labenusers/users"
+
 const headers = {
     headers: {
         Authorization: "flamarion-franca-lovelace"
@@ -11,11 +12,18 @@ const headers = {
 
 export default class App extends React.Component{
 
-    function pegarUsuarios(){
-        axios.get(url, headers).then((res)=>{
-            alert(res.data.result.list)
+    pegarUsuarios = ()=>{
+        let nome = document.getElementById('nome').value
+        let email = document.getElementById('mail').value
+        const body = {
+            "name": nome,
+            "email": email
+        }
+        
+        axios.post(url, body, headers).then((res)=>{
+            alert(res)
         }).catch((err)=>{
-            alert(err.response.data)
+            alert(err)
         })
     }
     
@@ -25,9 +33,9 @@ export default class App extends React.Component{
                 <input type="button" value="Ir para página de lista" />
             </div>
             <div class="form">
-                Nome:<input type="text" />
-                <p>E-mail:<input type="email" /></p>
-                <input type="button" value="Salvar" onClick={pegarUsuarios} />
+                Nome:<input type="text" id="nome" />
+                <p>E-mail:<input type="email" id="mail" /></p>
+                <input type="button" value="Salvar" onClick={this.pegarUsuarios} />
             </div>
         </div>
     }
