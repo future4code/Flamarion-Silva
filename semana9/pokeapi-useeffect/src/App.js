@@ -24,7 +24,7 @@ const App = ()=>{
         setPokeName( event.target.value )
     }
     
-  return 
+  return( 
       <div className="App">
         
         <select onChange={changePokeName}>
@@ -40,7 +40,7 @@ const App = ()=>{
         </select>
         
         {pokeName && <PokeCard pokemon={pokeName} />}
-      </div>
+      </div>)
     
   }
 
