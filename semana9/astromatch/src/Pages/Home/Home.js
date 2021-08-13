@@ -1,15 +1,29 @@
 import React, {useState, useEffect} from 'react'
 import styled from 'styled-components'
 import Logo from '../../img/logo.png'
-import Match from '../../img/matches.png'
-import Matches from '../Matches/Matches'
-import axios from 'axios'
 import MatchIcon from '../../img/matched.png'
 import DismissIcon from '../../img/dismiss.png'
 import SelMatch from '../../img/selMatch.png'
 import SelDismiss from '../../img/selDismiss.png'
 import PeopleAltIcon from '@material-ui/icons/PeopleAlt';
+import Matches from '../Matches/Matches'
+import axios from 'axios'
+import '../../font.css'
 
+
+const HalfTitleHome = styled.h3`
+    font-family: 'Style Script', cursive;
+    font-size: 20pt;
+    color: #388E8E;
+    margin-right: -278px;
+    margin-left: 15px;
+`
+const RestTitleHome = styled.h3`
+    font-family: 'Style Script', cursive;
+    font-size: 20pt;
+    color: purple;
+    margin-left: 16px;
+`
 
 const Hover = styled.div`
     cursor: pointer;
@@ -85,25 +99,31 @@ const Home = (props)=>{
         setMatches(newMatchList)
         console.log(matches)        
     }
+    const dismiss = ()=>{
+        window.location.reload()
+    }
+    
+    
     
                 
     return <div>
-    <Head style={{backgroundColor: 'white'}}>        
-        <img style={{cursor: 'pointer'}} src={`${Logo}`} alt='Logo do Astromatch' />        
-        <img style={{cursor: 'pointer'}} src={`${Match}`} alt='Logo do Match' onClick={()=>                    props.changeScreen('matches')} />         
-    </Head>
-        <Img src={perfil.photo} />
-            <Figure>
-                <b style={{fontSize: '20pt'}} >{perfil.name}, {perfil.age}</b><br/>
-                <figcaption>{perfil.bio}</figcaption>
-            </Figure>
-        <Icon>
-            <Matched id='matched' style={{marginLeft:'60px'}} src={`${MatchIcon}`}
-            onMouseOver={()=> changePic(`${SelMatch}`)} onMouseOut={()=> backToPic(`${MatchIcon}`)}
-            onClick={()=> addToMatches(perfil) } />
-            <Matched id='dismiss' style={{marginRight:'60px'}} src={`${DismissIcon}`} 
-            onMouseOver={()=> changePic1(`${SelDismiss}`)} onMouseOut={()=> backToPic1(`${DismissIcon}`)} />
-        </Icon>        
-       </div>
+        <Head>        
+            <HalfTitleHome>Astro</HalfTitleHome><RestTitleHome>match</RestTitleHome>       
+            <PeopleAltIcon style={{cursor: 'pointer', fontSize:'20pt', marginRight:'15px', color:'purple'}} onClick={()=> props.changeScreen('matches')} />         
+        </Head>
+                <Img src={perfil.photo} />      
+                <Figure>            
+                    <b style={{fontSize: '20pt'}} >{perfil.name}, {perfil.age}</b><br/>
+                    <figcaption>{perfil.bio}</figcaption>
+                </Figure>
+            <Icon>
+                <Matched id='matched' style={{marginLeft:'60px'}} src={`${MatchIcon}`}
+                onMouseOver={()=> changePic(`${SelMatch}`)} onMouseOut={()=> backToPic(`${MatchIcon}`)}
+                onClick={()=> addToMatches(perfil) } />
+                <Matched id='dismiss' style={{marginRight:'60px'}} src={`${DismissIcon}`} 
+                onMouseOver={()=> changePic1(`${SelDismiss}`)} onMouseOut={()=> backToPic1(`${DismissIcon}`)} 
+                onClick={dismiss} />
+            </Icon>        
+           </div>
 }
 export default Home

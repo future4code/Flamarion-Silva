@@ -5,6 +5,7 @@ import Home from './Pages/Home/Home'
 import styled from 'styled-components'
 import './styled.css'
 
+
 const Card = styled.div`
     position: absolute;
     top: 7%;
@@ -26,7 +27,7 @@ const GlobalStyle = createGlobalStyled`
 */
 
 const App = ()=>{
-    const [screen, setScreen] = useState('home')
+    const [screen, setScreen] = useState('slide')
     
         
     const changeScreen = (watch)=>{
