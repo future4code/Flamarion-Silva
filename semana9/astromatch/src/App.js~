@@ -39,7 +39,7 @@ const App = ()=>{
         
     //requisição para  API
     const getProfile = ()=>{
-        const url = 'https://us-central1-missao-newton.cloudfunctions.net/astroMatch/flamarion-lovelace/person'
+        const url = 'https://us-central1-missao-newton.cloudfunctions.net/astroMatch/flamarion-silva-lovelace/person'
         
         axios.get(url)
         .then((res)=>{            

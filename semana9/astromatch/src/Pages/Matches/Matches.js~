@@ -9,6 +9,12 @@ const Quadro = styled.div`
     display: flex;
     flex-direction: column;        
 `
+const FigCaption = styled.figcaption`
+    position: relative;
+    margin-left: 18%;
+    margin-top: -12%;
+    
+`
 const HalfTitleHome = styled.h3`
     font-family: 'Style Script', cursive;
     font-size: 20pt;
@@ -32,34 +38,13 @@ const Head = styled.div`
 
 
 const Matches = (props)=>{
-    const [matches, setMatches] = useState([])
-    
-    useEffect(()=>{
-        getMatches()
-    }, [])
-    
-    const getMatches = ()=>{
-        const url = 'https://us-central1-missao-newton.cloudfunctions.net/astroMatch/flamarion-lovelace/matches'
-        axios.get(url)
-        .then((res)=>{
-            setMatches(res.data)
-            console.log(res.data)
-            console.log(matches.length)
-        })
-        .catch((err)=>{
-            console.log(err.response)
-        })
-    } 
-          
+       
     return <Quadro>
             
         <Head>                  
             <Return style={{cursor: 'pointer', fontSize:'20pt', marginLeft:'15px', color:'purple'}} onClick={()=> props.changeScreen('home')} />
             <HalfTitleHome>Astro</HalfTitleHome><RestTitleHome>match</RestTitleHome>         
-        </Head>
-            {matches.map((match)=>{
-                return<div>{match}</div>
-            })}         
+        </Head>         
                                    
          </Quadro>      
 }
