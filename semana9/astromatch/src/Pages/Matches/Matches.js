@@ -29,27 +29,28 @@ const Head = styled.div`
     align-items: center;
     height: 40px;    
 `
+const Span = styled.span`
+    position: relative;
+    bottom: 27px;
+`
+const Img = styled.img`
+    width: 50px;
+    height: 50px;
+    border-radius: 50px;
+    padding: 10px;
+    margin-left: 10px;
+    &:hover{
+        background-color: lightgray;
+    }
+`
 
-
-const Matches = (props)=>{
-    const [matches, setMatches] = useState([])
-    
+//Inicio do componente
+const Matches = (props)=>{    
+       
     useEffect(()=>{
-        getMatches()
-    }, [])
+        props.getMatches()
+    }, [])  
     
-    const getMatches = ()=>{
-        const url = 'https://us-central1-missao-newton.cloudfunctions.net/astroMatch/flamarion-lovelace/matches'
-        axios.get(url)
-        .then((res)=>{
-            setMatches(res.data)
-            console.log(res.data)
-            console.log(matches.length)
-        })
-        .catch((err)=>{
-            console.log(err.response)
-        })
-    } 
           
     return <Quadro>
             
@@ -57,8 +58,10 @@ const Matches = (props)=>{
             <Return style={{cursor: 'pointer', fontSize:'20pt', marginLeft:'15px', color:'purple'}} onClick={()=> props.changeScreen('home')} />
             <HalfTitleHome>Astro</HalfTitleHome><RestTitleHome>match</RestTitleHome>         
         </Head>
-            {matches.map((match)=>{
-                return<div>{match}</div>
+            {props.matches.map((match)=>{
+                return<div key={match.id} match={match}>
+                <Img src={match.photo} /><Span>{match.name}</Span>
+                </div>
             })}         
                                    
          </Quadro>      

@@ -74,7 +74,7 @@ const sendMsg = ()=>{
             <h2 style={{fontFamily:'Style Script', textAlign:'center', fontSize:'30pt',
             color:'purple' }} >Chat</h2>
             <p style={{fontFamily:'Style Script', textAlign:'center', color:'purple',
-            marginTop:'-45px', fontSize:'20pt' }}>Diga um oi para {props.perfil.name} </p>
+            marginTop:'-45px', fontSize:'20pt' }}>Diga um oi para {props.person.name} </p>
            <MsgDiv>
               {msgs.map((msg)=>{
                   return <p style={{fontFamily:'Style Script', color:'purple', fontSize:'1.2rem'}}>{msg.msg}</p>

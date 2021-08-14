@@ -62,8 +62,7 @@ const Matched = styled.img`
 
 
 const Home = (props)=>{
-    const [person, setPerson] = useState(true)
-    
+        
     
     const changePic = (url)=>{
         document.getElementById('matched').src= url
@@ -78,46 +77,25 @@ const Home = (props)=>{
         document.getElementById('dismiss').src= url
     }
     
-    const choosePerson = ()=>{
-        const url = 'https://us-central1-missao-newton.cloudfunctions.net/astroMatch/flamarion-lovelace/choose-person'
-        const body = {
-            id: props.perfil.id,
-            choice: true
-        }
-        axios.post(url, body)
-        .then((res)=>{
-            setPerson(res.data)
-            console.log(res.data)            
-        })
-        .catch((err)=>{
-            console.log(err.response)
-            console.log(err.response)
-        })
         
-        if(choosePerson){
-            props.getProfile()
-        }        
-        
-    }
-    
    
     return <div>
         <Head>        
             <HalfTitleHome>Astro</HalfTitleHome><RestTitleHome>match</RestTitleHome>       
             <PeopleAltIcon style={{cursor: 'pointer', fontSize:'20pt', marginRight:'15px', color:'purple'}} onClick={()=> props.changeScreen('matches')} />         
         </Head> 
-                <Img src={props.perfil.photo} style={{cursor:'pointer'}} onClick={()=> props.changeScreen('chat')} />      
+                <Img src={props.person.photo} style={{cursor:'pointer'}} onClick={()=> props.changeScreen('chat')} />      
                 <Figure>            
-                    <b style={{fontSize: '20pt'}} >{props.perfil.name}, {props.perfil.age}</b><br/>
-                    <figcaption>{props.perfil.bio}</figcaption>
+                    <b style={{fontSize: '20pt'}} >{props.person.name}, {props.person.age}</b><br/>
+                    <figcaption>{props.person.bio}</figcaption>
                 </Figure>
             <Icon>
                 <Matched id='matched' style={{marginLeft:'60px'}} src={`${MatchIcon}`}
                 onMouseOver={()=> changePic(`${SelMatch}`)} onMouseOut={()=> backToPic(`${MatchIcon}`)}
-                onClick={choosePerson} />
+                onClick={()=> props.choosePerson(true)} />
                 <Matched id='dismiss' style={{marginRight:'60px'}} src={`${DismissIcon}`} 
                 onMouseOver={()=> changePic1(`${SelDismiss}`)} onMouseOut={()=> backToPic1(`${DismissIcon}`)} 
-                onClick={props.getProfile} />
+                onClick={()=>{props.choosePerson(false)}} />
             </Icon>
                     
            </div>

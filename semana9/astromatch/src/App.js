@@ -18,6 +18,7 @@ const Card = styled.div`
     border: 2px dotted purple;
     box-shadow: 3px 3px 7px purple;
     background-image: linear-gradient(to top, whitesmoke, lightgray);
+    overflow: auto;
 `
 /*import {createGlobalStyled} from 'styled-components'
 
@@ -30,41 +31,74 @@ const GlobalStyle = createGlobalStyled`
 
 const App = ()=>{
     const [screen, setScreen] = useState('home')
-    const [perfil, setPerfil] = useState({})  
-    
-    
-     useEffect(()=>{
-        getProfile()
-    }, [])
-        
+    const [person, setPerson] = useState({})    
+    const [matches, setMatches] = useState([])   
+                
     //requisição para  API
     const getProfile = ()=>{
         const url = 'https://us-central1-missao-newton.cloudfunctions.net/astroMatch/flamarion-lovelace/person'
         
         axios.get(url)
         .then((res)=>{            
-            setPerfil(res.data.profile)                                              
+            setPerson(res.data.profile)
+            console.log(res.data.profile)                                              
         })        
         .catch((err)=>{
             alert('Algo deu errado', err)
             console.log(err.response)            
         })        
+    }
+    
+    useEffect(()=>{
+        getProfile()
+    }, [])
+    
+    const choosePerson = (choice)=>{
+        const url = 'https://us-central1-missao-newton.cloudfunctions.net/astroMatch/flamarion-lovelace/choose-person'
+        const body = {
+            id: person.id,
+            choice: choice
+        }
+        
+        axios.post(url, body)
+        .then((res)=>{
+            getProfile()            
+            console.log(res.data)            
+        })
+        .catch((err)=>{
+            console.log(err.response)            
+        })
+        
+        getProfile()
+    }
+    
+    const getMatches = ()=>{
+        const url = 'https://us-central1-missao-newton.cloudfunctions.net/astroMatch/flamarion-lovelace/matches'
+        axios.get(url)
+        .then((res)=>{
+            setMatches(res.data.matches)
+            console.log(res.data.matches)
+            console.log(matches.length)
+        })
+        .catch((err)=>{
+            console.log(err.response)
+        })
     }    
     
     const changeScreen = (watch)=>{
         setScreen(watch)
     }
     
-        
+           
         
     const renderScreen = ()=>{
         switch(screen){
             case 'home':
-                return <Home changeScreen={changeScreen} perfil={perfil} getProfile={getProfile} />
+                return <Home changeScreen={changeScreen} person={person} choosePerson={choosePerson} />
             case 'matches':
-                return <Matches changeScreen={changeScreen} perfil={perfil} />
+                return <Matches changeScreen={changeScreen} person={person} matches={matches} getMatches={getMatches} />
             case 'chat':
-                return <Chat changeScreen={changeScreen} perfil={perfil} getProfile={getProfile} />
+                return <Chat changeScreen={changeScreen} person={person} />
             default:
                 return <Home changeScreen={changeScreen} />
         }
