@@ -5,6 +5,7 @@ import DismissIcon from '../../img/dismiss.png'
 import SelMatch from '../../img/selMatch.png'
 import SelDismiss from '../../img/selDismiss.png'
 import PeopleAltIcon from '@material-ui/icons/PeopleAlt';
+import MessageIcon from '@material-ui/icons/Message';
 import Matches from '../Matches/Matches'
 import axios from 'axios'
 import '../../font.css'
@@ -21,7 +22,7 @@ const RestTitleHome = styled.h3`
     font-family: 'Style Script', cursive;
     font-size: 20pt;
     color: purple;
-    margin-left: 16px;
+    margin-left: 13px;    
 `
 
 const Hover = styled.div`
@@ -80,11 +81,13 @@ const Home = (props)=>{
         
    
     return <div>
-        <Head>        
-            <HalfTitleHome>Astro</HalfTitleHome><RestTitleHome>match</RestTitleHome>       
-            <PeopleAltIcon style={{cursor: 'pointer', fontSize:'20pt', marginRight:'15px', color:'purple'}} onClick={()=> props.changeScreen('matches')} />         
+        <Head>                               
+            <HalfTitleHome>Astro</HalfTitleHome><RestTitleHome>match</RestTitleHome>            
+            <MessageIcon style={{cursor:'pointer', position:'absolute', left:'180px', fontSize:'20pt',
+            color:'#388E8E'}} onClick={()=> props.changeScreen('chat')} />
+            <PeopleAltIcon style={{cursor: 'pointer', fontSize:'20pt', marginRight:'15px', color:'purple'}} onClick={()=> props.changeScreen('matches')} />          
         </Head> 
-                <Img src={props.person.photo} style={{cursor:'pointer'}} onClick={()=> props.changeScreen('chat')} />      
+                <Img src={props.person.photo} />      
                 <Figure>            
                     <b style={{fontSize: '20pt'}} >{props.person.name}, {props.person.age}</b><br/>
                     <figcaption>{props.person.bio}</figcaption>

@@ -77,7 +77,7 @@ const sendMsg = ()=>{
             marginTop:'-45px', fontSize:'20pt' }}>Diga um oi para {props.person.name} </p>
            <MsgDiv>
               {msgs.map((msg)=>{
-                  return <p style={{fontFamily:'Style Script', color:'purple', fontSize:'1.2rem'}}>{msg.msg}</p>
+                  return <p style={{fontSize:'1.2rem'}} >{msg.msg}</p>
               })}    
             <InputDiv>
             <input type='text' placeholder='Mensagem' value={msg} onChange={handleMsg} autoFocus 
