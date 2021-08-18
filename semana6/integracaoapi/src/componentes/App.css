@@ -1,0 +1,28 @@
+.corpo{
+    text-align: center;
+}
+
+.form{
+    border: 1px solid;
+    width: 300px;
+    margin: auto;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 2px 2px 4px gray;
+}
+
+input{
+    height: 30px;
+    
+}
+.btn{
+    width: 100px;
+    background-color: blue;
+    height: 30px;
+    font-size: 14pt;    
+}
+
+.lista{
+    border: 1px solid;
+    width: 300px;
+}

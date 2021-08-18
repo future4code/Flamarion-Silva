@@ -6,10 +6,11 @@ const PokeCard = (props)=>{
     const [pokemon, setPokemon] = useState({})  
   
   useEffect((prevProps)=>{
-       pegaPokemon(props.pokemon)
+
+     pegaPokemon(props.pokemon)
     
-  }, [])
-    
+  }, [props.pokemon])
+
   const pegaPokemon = pokeName => {
     axios
       .get(`https://pokeapi.co/api/v2/pokemon/${pokeName}`)
