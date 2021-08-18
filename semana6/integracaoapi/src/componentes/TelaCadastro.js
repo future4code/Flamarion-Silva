@@ -1,5 +1,6 @@
 import React from 'react'
 import axios from 'axios'
+import './App.css'
 
 export default class TelaCadastro extends React.Component{
     state = {
@@ -36,16 +37,18 @@ export default class TelaCadastro extends React.Component{
     
     render(){
         return(
-            <div>
+            <div class="corpo">
             <button onClick={this.props.irParaLista}>Ir para lista de usuários</button>
             <h2>Tela de Cadastro</h2>
+            <div class="form">
             <input placeholder="Nome"
             value={this.state.nome}
             onChange={this.handleNome}/>
             <p><input placeholder="E-mail"
             value={this.state.email}
             onChange={this.handleEmail} /></p>
-            <button onClick={this.fazerCadastro} >Salvar</button>
+            <button class="btn" onClick={this.fazerCadastro} >Salvar</button>
+            </div>
             </div>
         )
     }
