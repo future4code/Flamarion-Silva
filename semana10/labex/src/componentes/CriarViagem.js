@@ -24,6 +24,7 @@ const Input = styled.input`
 	}
 `
 const Select = styled.select`
+	font-size: 1rem;
 	width: 34.7vw;
 	height: 5.5vh;
 	border-radius: 10px;
@@ -80,6 +81,13 @@ const inputName = useRef(null)
 
 const url = 'https://us-central1-labenu-apis.cloudfunctions.net/labeX/flamarion-lovelace/trips'
 const token = localStorage.getItem('token')
+const body = {
+    name: name,
+    planet: planet,
+    date: date,
+    description: text,
+    durationInDays: days
+}
 const headers = {
 		headers: {
 			auth: token
@@ -88,15 +96,18 @@ const headers = {
 	
 	const createTrip = (e)=>{
 		e.preventDefault()
-		axios.post(url, headers).then((res)=>{
+		axios.post(url, body, headers).then((res)=>{
 			console.log(res.data.trips)
-			alert('Viagem criada com sucesso.')
+			alert(`${res.data.trips.name} criada com sucesso.`)
+			setName('')
+			setPlanet('')
+			setDate('')
+			setText('')
+			setDays('')
 			inputName.current.focus()
 		}).catch((err)=>{
 			console.log(err.response)
-			alert('Algo deu errado', err.response)
-			console.log(url)
-			console.log(token)
+			alert('Algo deu errado', err.response)			
 			inputName.current.focus()
 		})
 	}

@@ -43,7 +43,7 @@ const [approved, setApproved] = useState([])
 const [decision, setDecision] = useState(false)
 const trip = props.trips
 
-	const id = 	trip.id
+	const id = trip.id
 	
 	const tripDetail = ()=>{
 		const token = localStorage.getItem('token')			
@@ -67,7 +67,7 @@ const trip = props.trips
 		tripDetail()
 	}, [])
 	
-	const decideCandidate = ()=>{
+	const approveCandidate = ()=>{
 		const token = localStorage.getItem('token')		
 		const url = `https://us-central1-labenu-apis.cloudfunctions.net/labeX/flamarion-lovelace/trips/${id}/candidates/ePm8p4Q8NDnKh4oxozrG/decide`
 		const body = {
@@ -82,6 +82,27 @@ const trip = props.trips
 		axios.put(url, body, headers).then((res)=>{
 			console.log(res.data)
 			alert('Candidato aprovado com sucesso.')
+		}).catch((err)=>{
+			console.log(err.response.data)
+			alert('Algo deu errado', err.response.data)						
+		})
+	}
+	
+	const disapproveCandidate = ()=>{
+		const token = localStorage.getItem('token')		
+		const url = `https://us-central1-labenu-apis.cloudfunctions.net/labeX/flamarion-lovelace/trips/${id}/candidates/ePm8p4Q8NDnKh4oxozrG/decide`
+		const body = {
+			"approve": false
+		}
+		const headers = {
+			headers: {
+				auth: token
+			}
+		}
+		
+		axios.put(url, body, headers).then((res)=>{
+			console.log(res.data)
+			alert('Candidato reprovado.')
 		}).catch((err)=>{
 			console.log(err.response.data)
 			alert('Algo deu errado', err.response.data)						
@@ -106,7 +127,8 @@ return <div>
 						<p><b>Nome: </b>{cand.name}</p>
 						<p><b>Profissão: </b>{cand.profession}</p>
 						<p><b>Texto de candidatura: </b>{cand.applicationText}</p>
-						<Div><Button onClick={decideCandidate}>Aprovar</Button><Button>Reprovar</Button></Div>
+						<Div><Button onClick={approveCandidate}>Aprovar</Button>
+						<Button onClick={disapproveCandidate} >Reprovar</Button></Div>
 					</Trips>
 			}) : <p>Não há candidatos pendentes.</p>}
 		<H1>Candidatos Aprovados</H1>

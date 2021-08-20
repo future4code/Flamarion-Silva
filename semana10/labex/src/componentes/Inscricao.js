@@ -26,6 +26,7 @@ const Input = styled.input`
 	}
 `
 const Select = styled.select`
+	font-size: 1rem;
 	width: 34.7vw;
 	height: 5.5vh;
 	border-radius: 10px;

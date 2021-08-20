@@ -32,7 +32,7 @@ const Span = styled.span`
 	}
 `
 const Button = styled.button`
-	margin-left: 42.5vw;
+	margin-left: 38.5vw;
 	margin-bottom: 3vh;
 	width: 10vw;
 	height: 5vh;
@@ -45,6 +45,26 @@ const Button = styled.button`
 		color: whitesmoke;
 		background-color: #4040ff;
 	}
+`
+const Logout = styled.button`
+	margin-left: 2vw;
+	margin-bottom: 3vh;
+	width: 10vw;
+	height: 5vh;
+	border-radius: 20px;
+	background-color: lightblue;
+	font-size: 1rem;
+	cursor: pointer;
+	color: gray;
+	&:hover{
+		color: whitesmoke;
+		background-color: #4040ff;
+	}
+`
+
+const ButtonCont = styled.div`
+	display: flex;
+	
 `
 
 
@@ -65,14 +85,13 @@ const [trips, setTrips] = useState([])
 		})
 	}
 		
-	useEffect(()=>{
+	useEffect(()=>{		
 		getTrips()
 	}, [])
 	
 	
-	const deleteTrip = ()=>{
+	const deleteTrip = (id)=>{
 		const token = localStorage.getItem('token')
-		const id = trips.id
 		const url = `https://us-central1-labenu-apis.cloudfunctions.net/labeX/flamarion-lovelace/trips/${id}`
 		const headers = {
 			headers: {
@@ -91,14 +110,27 @@ const [trips, setTrips] = useState([])
 		}
 	}
 	
-	return <div>
+	const logout = ()=>{
+		const decide = window.confirm('Tem certeza que deseja fazer logout?')
+		if(decide){
+			localStorage.removeItem('token')
+			props.changeScreen('home')
+		}
+	}
+
+
+//componente funcional	
+return <div>
 			<H1>Painel Administrativo</H1>
+			<ButtonCont>
 			<Button onClick={()=> props.changeScreen('criar')}>Criar Viagem</Button>
+			<Logout onClick={logout}>Logout</Logout>
+			</ButtonCont>
 			{trips.map((trip)=>{
 				return <Trips>
 						<span onClick={()=> props.goToDetail(trip)}>{trip.name}</span> 
 						<Span><DeleteIcon className='icone' style={{color:'lightblue',
-							fontSize:'1.5rem', cursor:'pointer'}} onClick={deleteTrip} />
+							fontSize:'1.5rem', cursor:'pointer'}} onClick={()=> deleteTrip(trip.id)} />
 						</Span>														
 					</Trips>
 			})}

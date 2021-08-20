@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 import axios from 'axios'
-import {useState, useRef} from 'react'
+import {useState, useRef, useEffect} from 'react'
 
 
 const InputCont = styled.div`
@@ -50,6 +50,15 @@ const Login = (props)=>{
 const [email, setEmail] = useState('')
 const [password, setPassword] = useState('')
 const inputEmail = useRef(null)
+
+
+	useEffect(()=>{
+		const token = localStorage.getItem('token')
+		
+		if(token !== null){
+			props.changeScreen('adm')
+		}
+	}, [])
 
 
 	const handleEmail = (e)=>{

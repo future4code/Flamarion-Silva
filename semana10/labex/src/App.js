@@ -48,10 +48,11 @@ const Li = styled.li`
 
 
 const App = (props)=> {
-	const [screen, setScreen] = useState('adm')
+	const [screen, setScreen] = useState('home')
 	const menu = useRef(null)
 	const [curtain, setCurtain] = useState(true)
 	const [trips, setTrips] = useState([])
+	
 	
 	
 	useEffect(()=>{
