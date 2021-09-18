@@ -12,7 +12,7 @@ const App = ()=>{
         axios
           .get("https://pokeapi.co/api/v2/pokemon/?limit=151")
           .then(response => {            
-            setPokeList( response.data.results );
+            setPokeList( response.data.results )
             console.log(response.data.results)
           })
           .catch(err => {

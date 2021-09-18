@@ -40,7 +40,7 @@ const Post = (props) => {
   
   const iconeCurtida = curtido ? (iconeCoracaoPreto) : (iconeCoracaoBranco)
   
- /* const caixaDeComentario = comentando ? (
+  const caixaDeComentario = comentando ? (
       // Componente com o input e botão de enviar novo comentario. Import dele na linha 5.
       <SecaoComentario enviarComentario={enviarComentario}/>
     ) : (
@@ -54,7 +54,7 @@ const Post = (props) => {
             <p>{comentario}</p>
           </CommentContainer>
         )
-      })*/
+      })
    // )
   
   

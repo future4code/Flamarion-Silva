@@ -8,17 +8,17 @@ import '../../font.css'
 
 
 const HalfTitle = styled.h3`
+    position: absolute;
+    left: 9.5vw;
     font-family: 'Style Script', cursive;
     font-size: 20pt;
     color: #388E8E;
-    margin-right: -1px;
-    margin-left: 95px;
 `
 const RestTitle = styled.h3`
     font-family: 'Style Script', cursive;
     font-size: 20pt;
     color: purple;
-    margin-right: 120px;
+    margin-left: 3vw;
 `
 const Head = styled.div`
     display: flex;
@@ -26,7 +26,6 @@ const Head = styled.div`
     border-bottom: 1px solid purple;
     align-items: center;
     height: 40px;
-    margin: px;
 `
 const Quadro = styled.div`
     display: flex;
@@ -67,9 +66,9 @@ const sendMsg = ()=>{
        
     return <Quadro>
         <Head>            
-            <Return style={{fontSize:'23pt', marginLeft:'12px', cursor:'pointer', color:'purple'}} onClick={()=> props.changeScreen('matches')} />
+            <Return style={{fontSize:'23pt', cursor:'pointer', color:'purple'}} onClick={()=> props.changeScreen('matches')} />
             <HalfTitle>Astro</HalfTitle><RestTitle>match</RestTitle>
-            <HomeIcon style={{fontSize:'23pt', marginRight:'880px', marginLeft:'-15px', cursor:'pointer', color:'purple'}} onClick={()=> props.changeScreen('home')} />         
+            <HomeIcon style={{fontSize:'23pt', marginLeft:'-15px', cursor:'pointer', color:'purple'}} onClick={()=> props.changeScreen('home')} />         
         </Head>
             <h2 style={{fontFamily:'Style Script', textAlign:'center', fontSize:'30pt',
             color:'purple' }} >Chat</h2>
@@ -83,8 +82,8 @@ const sendMsg = ()=>{
             <input type='text' placeholder='Mensagem' value={msg} onChange={handleMsg} autoFocus 
             ref={nameInputRef} 
             style={{width:'274px', outline:'none', backgroundColor:'transparent', height:'30px',
-            borderRadius:'10px'}} id='mensagem'/>
-            <button style={{width:'100px', height:'35px', borderRadius:'10px'}}
+            borderRadius:'10px', width:'20vw'}} id='mensagem'/>
+            <button style={{width:'100px', height:'35px', borderRadius:'10px', width:'7vw'}}
             onClick={sendMsg} >Enviar</button>  
             </InputDiv>      
            </MsgDiv>
