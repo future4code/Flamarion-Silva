@@ -3,7 +3,7 @@ type padrao = {
   texto: string
 }
 
-const posts: padrao = [
+const posts = [
   {
     autor: "Alvo Dumbledore",
     texto: "Não vale a pena viver sonhando e se esquecer de viver"
@@ -25,3 +25,5 @@ const posts: padrao = [
     texto: "Avada Kedavra!"
   }
 ]
+
+console.log(posts)
