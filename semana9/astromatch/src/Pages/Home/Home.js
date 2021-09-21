@@ -12,30 +12,31 @@ import '../../font.css'
 
 
 const HalfTitleHome = styled.h3`
+    position: absolute;
+    left: 5px;
     font-family: 'Style Script', cursive;
     font-size: 20pt;
-    color: #388E8E;
-    margin-right: -250px;
-    margin-left: 15px;
+    color: #388E8E;    
 `
 const RestTitleHome = styled.h3`
+    position: relative;
+    left: 5vw;
     font-family: 'Style Script', cursive;
     font-size: 20pt;
-    color: purple;
-    margin-left: 13px;    
+    color: purple;    
 `
-
-const Hover = styled.div`
-    cursor: pointer;
-    }
-`
-
 const Head = styled.div`
     display: flex;
     justify-content: space-between;
     border-bottom: 1px solid purple;
     align-items: center;
-    height: 40px;    
+    height: 30px;
+    div{
+        position: absolute;
+        left: 30%;
+    }    
+`
+const PictureContainer = styled.div`
 `
 const Img = styled.img`
     width: 25vw;
@@ -46,7 +47,7 @@ const Img = styled.img`
 `
 const Figure = styled.figure`
     position: absolute;
-    top: 60%;
+    top: 50%;
     color: whitesmoke;    
 `
 const Icon = styled.div`
@@ -82,16 +83,20 @@ const Home = (props)=>{
    
     return <div>
         <Head>                               
-            <HalfTitleHome>Astro</HalfTitleHome><RestTitleHome>match</RestTitleHome>            
-            <MessageIcon style={{cursor:'pointer', position:'absolute', left:'180px', fontSize:'20pt',
-            color:'#388E8E'}} onClick={()=> props.changeScreen('chat')} />
-            <PeopleAltIcon style={{cursor: 'pointer', fontSize:'20pt', marginRight:'15px', color:'purple'}} onClick={()=> props.changeScreen('matches')} />          
+            <PeopleAltIcon style={{cursor: 'pointer', fontSize:'20pt', color:'purple'}} onClick={()=> props.changeScreen('matches')}/>          
+            <div>
+                <HalfTitleHome>Astro</HalfTitleHome><RestTitleHome>match</RestTitleHome>            
+            </div>
+            <MessageIcon style={{cursor:'pointer', position:'absolute', left:'25vw', fontSize:'20pt',
+            color:'#388E8E'}} onClick={()=> props.changeScreen('chat')}/>
         </Head> 
-                <Img src={props.person.photo} />      
-                <Figure>            
-                    <b style={{fontSize: '20pt'}} >{props.person.name}, {props.person.age}</b><br/>
-                    <figcaption>{props.person.bio}</figcaption>
-                </Figure>
+                <PictureContainer>
+                    <Img src={props.person.photo} />      
+                    <Figure>            
+                        <b style={{fontSize: '20pt'}} >{props.person.name}, {props.person.age}</b><br/>
+                        <figcaption>{props.person.bio}</figcaption>
+                    </Figure>
+                </PictureContainer>
             <Icon>
                 <Matched id='matched' style={{marginLeft:'60px'}} src={`${MatchIcon}`}
                 onMouseOver={()=> changePic(`${SelMatch}`)} onMouseOut={()=> backToPic(`${MatchIcon}`)}

@@ -1,0 +1,12 @@
+{
+  "name": "beginning",
+  "version": "1.0.0",
+  "description": "",
+  "main": "countries.js",
+  "scripts": {
+    "search": "node index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
