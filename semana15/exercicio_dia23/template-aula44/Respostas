@@ -1,0 +1,14 @@
+Exercício 1:
+a. O método usado é o GET
+b. A entidade que estou usando é o users, a primeira rota após o endpoint do servidor.
+
+Exercício 2:
+a. Os parêmetros foi a o sinal de interrogação(?), após a entidade, o parâmetro type que é um dos elementos do objeto users e o sinal de igual para indicar qual o valor do parâmetro type.
+b.Coloquei este a condição (!type) em casos onde o parâmetro não seja passado e a condição (user.length === 0) em casos em que não hajam types coerentes.
+
+Exercício 3:
+a. O tipo de parâmetro usado é o Query.
+b. Resposta explicita no código.
+
+Exercício 4:
+a. Não houve mudanças em ambos os métodos, dessa forma estou incapaz de optar por um melhor método.
