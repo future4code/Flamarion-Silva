@@ -14,26 +14,60 @@ app.use(express.json())
 //===================show all countries===========
 app.get('/countries', (req, res)=>{
 	const result = countries.map(country=>{
-		return ({id: country.id, name: country.name})
+		return ({id: country.id, name: country.name,
+		continent: country.continent})
 	})
 
 	res.status(200).send(result)
 })
 
 //===============search countries by query params=============
-app.get('/countries/search', (req, res)=>{
-	const result = countries.filter(country=>{
-		return country.name.includes(req.query.name as string)
-		|| country.name.includes(req.query.name as string)
-		|| country.capital.includes(req.query.capital as string)
-		|| country.continent.includes(req.query.continent as string)
-	})
-	
-	
-		res.status(200).send(result)
-	
-})
+app.get('/countries/search', (req, res) => {
+  let result: country[] = countries
+  try {
 
+  		if(!req.query.name && !req.query.capital && !req.query.continent){
+  			throw new Error('Parâmetro inválido!')
+  			//res.send('Parâmetro inválido!')
+  		}
+  		if(req.query.name && req.query.capital && req.query.continent){
+  			result = result.filter(country=>{
+  				return country.name.includes(req.query.name as string)
+  				|| country.capital.includes(req.query.capital as string)
+  				|| country.capital.includes(req.query.capital as string)
+  			})
+  		}
+	    
+	    res.status(200).send(result)
+  }catch(error) {
+	    res.status(400).send({message: error.message})
+	  }
+	})
+
+//========================Delete country======================
+/*app.delete('/countries/:id', (req, res)=>{
+	try{
+		const token = req.headers.authorization
+
+		if(!token){
+			res.status(401)
+			throw new Error('Usuário não registrado!')
+		}
+
+		if(!Number(req.params.id)){
+			res.status(404)
+			throw new Error('Id inválido!')
+		}
+
+		const index = countries.findIndex(country=>{
+			return country.id === Number(req.params.id)
+		})
+
+	}catch(error: any){
+		res.send(error.message)
+	}
+})
+*/
 //========================show country by id==================
 app.get('/countries/:id', (req, res)=>{
 	const result = countries.find(country=>{
