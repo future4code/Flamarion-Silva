@@ -1,20 +1,31 @@
 import axios from 'axios'
-import {useState, useContext} from 'react'
-import Context from '../../global/Context'
+import {useState, useEffect} from 'react'
 import {url} from '../../constants/urls'
 import {Container} from './styled'
 import Header from '../../components/Header'
+import Footer from '../../components/Footer'
+import {useHistory} from 'react-router-dom'
 
 
 
 //===========================Componente===========================
 const CreateAccount = ()=>{
-	const {states} = useContext(Context)
+	const history = useHistory()
 	const [form, setForm] = useState({
 		name:'',
 		cpf:'',
 		date:''
 	})
+	
+
+	useEffect(()=>{
+		const token = localStorage.getItem('token')
+
+		if(token === null){
+			history.push('/')
+		}
+
+	}, [history])
 
 	const onChange = (e)=>{
 		const {name, value} = e.target
@@ -47,12 +58,13 @@ return<div>
 			 placeholder='Nome e sobrenome' id='client' required /> 
 			<input tpe='number' name='cpf' value={form.cpf} onChange={onChange}
 			 placeholder='Somente números' required/>
-			<label for='birthDate'>Data de nascimento</label>
+			<label htmlFor='birthDate'>Data de nascimento</label>
 			<input type='date' id='birthDate' name='date' value={form.date}
 			 onChange={onChange} required />
 			<button>Enviar</button>
 		</form>
 	  </Container>
+	  <Footer/>
 	  </div>
 }
 export default CreateAccount

@@ -30,6 +30,11 @@ let users: User[] = [
 				value: 250,
 				date: new Date('2021/11/03'),
 				description: 'lorem ipsum'
+			},
+			{
+				value: 150,
+				date: new Date('2020/12/03'),
+				description: 'lorem ipsum'
 			}
 		]
 	},
@@ -136,7 +141,31 @@ app.post('/accounts/balance', (req: Request, res: Response)=>{
 			res.send(`${balance}`)
 		}else{
 			statusCode = 401
-			throw new Error('Cliente não encontrado!\n Verifique os campos e tente novamente.')
+			throw new Error('Cliente não encontrado!\nVerifique os campos e tente novamente.')
+		}
+
+	}catch(error: any){
+		res.status(statusCode).send({message: error.message})
+	}
+})
+
+//==========================Statement==================================
+app.post('/accounts/statement', (req: Request, res: Response)=>{
+	let statusCode = 404
+
+	try{
+		if(!req.body.name || !req.body.cpf){
+			statusCode = 401
+			throw new Error('Check your fileds!')
+		}
+
+		const client = users.find(user=> user.cpf === req.body.cpf && user.name === req.body.name)
+
+		if(client){			
+			res.send(client.statement)
+		}else{
+			statusCode = 401
+			throw new Error('Cliente não encontrado.\nVerifique os campos e tente novamente.')
 		}
 
 	}catch(error: any){
@@ -161,7 +190,7 @@ app.post('/accounts/deposit', (req: Request, res: Response)=>{
 			sameUser.statement.push({
 				value: req.body.value,
 				date: new Date(),
-				description: 'Cash added'
+				description: 'Deposito'
 			})
 
 			res.status(200).send(`Value successfully added.`)
@@ -250,13 +279,13 @@ app.post('/accounts/transfers', (req: Request, res: Response)=>{
 			recipient.statement.push({
 				value,
 				date: new Date(),
-				description: 'Transfer'
+				description: 'Transferência'
 			})
 
 			client.statement.push({
 				value,
 				date: new Date,
-				description: 'Transfer'
+				description: 'Transferência'
 			})
 
 			res.send('Transfer completed successfully.')

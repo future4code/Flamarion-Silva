@@ -1,20 +1,32 @@
-import {useContext, useState} from 'react'
-import Context from '../../global/Context'
+import {useEffect, useState} from 'react'
 import axios from 'axios'
 import {url} from '../../constants/urls'
 import {Container} from './styled'
 import Header from '../../components/Header'
+import Footer from '../../components/Footer'
+import {useHistory} from 'react-router-dom'
 
 
 //+=======================Components==========================
 const Payments = ()=>{
-	const {states} = useContext(Context)
+	const history = useHistory()
 	const [form, setForm] = useState({
 		name:'',
 		cpf:'',
 		initialDate:'',
-		value:''
+		value:'',
+		description:''
 	})
+
+
+	useEffect(()=>{
+		const token = localStorage.getItem('token')
+
+		if(token === null){
+			history.push('/')
+		}
+
+	}, [history])
 
 
 	const onChange = (e)=>{
@@ -33,11 +45,18 @@ const Payments = ()=>{
 			cpf: Number(form.cpf),
 			initialDate: form.initialDate,
 			value: form.value,
-			description: 'Payment'
+			description: form.description
 		}
 
 		axios.post(`${url}/payments`, body).then(res=>{
 			alert('Pagamento efetuado com sucesso!')
+			setForm({
+				name:'',
+				cpf:'',
+				initialDate:'',
+				value:'',
+				description:''
+			})
 		}).catch(err=>{
 			alert(err.response.data.message)			
 		})
@@ -55,11 +74,14 @@ const Payments = ()=>{
 					 placeholder='CPF(somente números)' required/>
 					<input type='date' name='initialDate' value={form.initialDate} onChange={onChange}
 					 required/>
+					<input type='text' name='description' value={form.description} onChange={onChange}
+					 placeholder='Descrição' required/>
 					<input type='number' name='value' value={form.value} onChange={onChange}
 					 placeholder='Valor R$ 0,00' required/>
 					<button>Efetuar pagamento</button>
 				</form>
 			  </Container>
+			  <Footer />
 		  </div>
 }
 export default Payments

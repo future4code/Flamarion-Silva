@@ -4,8 +4,11 @@ import CreateAccount from '../pages/CreateAccount/CreateAccount'
 import Deposit from '../pages/Deposit/Deposit'
 import Transfer from '../pages/Transfer/Transfer'
 import Payments from '../pages/Payments/Payments'
-import GlobalState from '../global/GlobalState'
+import Statement from '../pages/Statement/Statement'
 import Home from '../pages/Home/Home'
+import Login from '../pages/Login/Login'
+import Signup from '../pages/Signup/Signup'
+import GlobalState from '../global/GlobalState'
 
 
 const Routes = ()=>{
@@ -13,6 +16,12 @@ const Routes = ()=>{
 			<GlobalState>
 				<Route exact path='/'>
 					<Home/>
+				</Route>
+				<Route exact path='/login'>
+					<Login/>
+				</Route>
+				<Route exact path='/signup'>
+					<Signup/>
 				</Route>
 				<Route exact path='/balance'>
 					<Balance/>
@@ -28,6 +37,9 @@ const Routes = ()=>{
 				</Route>
 				<Route exact path='/pay'>
 					<Payments/>
+				</Route>
+				<Route exact path='/statement'>
+					<Statement/>
 				</Route>
 			</GlobalState>
 		  </Switch>

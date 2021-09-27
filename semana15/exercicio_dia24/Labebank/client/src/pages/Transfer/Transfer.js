@@ -1,14 +1,15 @@
 import axios from 'axios'
-import {useState, useContext} from 'react'
+import {useState, useEffect} from 'react'
 import {url} from '../../constants/urls'
-import Context from '../../global/Context'
 import {Container} from './styled'
 import Header from '../../components/Header'
+import Footer from '../../components/Footer'
+import {useHistory} from 'react-router-dom'
 
 
 //===========================Inicio do compoente funcional=========
 const Transfer = ()=>{
-	const {states} = useContext(Context)
+	const history = useHistory()
 	const [form, setForm] = useState({
 		name:'',
 		cpf:'',
@@ -16,6 +17,15 @@ const Transfer = ()=>{
 		recipientCpf:'',
 		value:''
 	})
+
+	useEffect(()=>{
+		const token = localStorage.getItem('token')
+
+		if(token === null){
+			history.push('/')
+		}
+
+	}, [history])
 
 	const onChange = (e)=>{
 		const {name, value} = e.target
@@ -37,6 +47,14 @@ const Transfer = ()=>{
 
 		axios.post(`${url}/transfers`, body).then(res=>{
 			console.log(res.data)
+			alert('Transferência bem sucedida.')
+			setForm({
+				name:'',
+				cpf:'',
+				recipientName:'',
+				recipientCpf:'',
+				value:''
+			})
 		}).catch(err=>{
 			alert(err.response.data.message)
 		})
@@ -62,6 +80,7 @@ const Transfer = ()=>{
 					<button>Transferir</button>
 				</form>
 			  </Container>
+			  <Footer/>
 		   </div>
 }
 export default Transfer

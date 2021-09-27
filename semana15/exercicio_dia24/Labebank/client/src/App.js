@@ -5,9 +5,7 @@ import {createGlobalStyle} from 'styled-components'
 
 const GlobalStyle = createGlobalStyle`
 	body{
-		background-image: url('https://notion-emojis.s3-us-west-2.amazonaws.com/v0/svg-twitter/1f3e6.svg');
-		background-size: cover;
-		background-repeat: no-repeat;
+    background-image: linear-gradient(to top, whitesmoke, gray);
 	}
 
 `
