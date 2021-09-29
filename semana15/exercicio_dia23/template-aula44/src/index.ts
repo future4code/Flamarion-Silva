@@ -124,7 +124,50 @@ app.get('/users/searchname', (req: Request, res: Response)=>{
 
 })
 
-//====================Search by Id==================
+//=====================Create User==============================
+app.post('/users', (req: Request, res: Response)=>{
+  let statusCode = 404
+
+  try{
+    const {id, name, email, type, age} = req.body
+
+    if(!id || !name || !email || !type || !age){
+      statusCode = 422
+      throw new Error('Verify required fields')
+    }
+    if(isNaN(id) || isNaN(age)){
+      statusCode = 422
+      throw new Error('Verify your id and age either. They both must numbers!')
+    }
+
+    const sameId = users.find(user=>{
+      return user.id === id
+    })
+
+    const newUser: User = {
+      id,
+      name,
+      email,
+      type,
+      age
+    }
+
+    
+    if(sameId){
+      statusCode = 422
+      throw new Error(`This id is already been registered.`)
+    }else{
+      users.push(newUser)
+      res.status(201).send({message: `${name} was created successfully.`})   
+    }
+
+  }catch(error){
+    res.status(statusCode).send({message: error.message})
+  }
+
+})
+
+//====================Search by Id===============================
 app.get('/users/:id', (req: Request, res: Response)=>{
   let statusCode = 404
   
@@ -136,12 +179,12 @@ app.get('/users/:id', (req: Request, res: Response)=>{
       throw new Error('Invalid id')
     }
 
+
     const user = users.find(user=>{
       return user.id === id
     })
 
     if(!user){
-      statusCode = 404
       throw new Error('User not found!')
     }
 
@@ -153,8 +196,8 @@ app.get('/users/:id', (req: Request, res: Response)=>{
 
 })
 
-//=====================Create User==============================
-app.post('/users', (req: Request, res: Response)=>{
+//======================Update user===============================
+app.patch('/users/', (req: Request, res: Response)=>{
   let statusCode = 404
 
   try{
@@ -162,12 +205,17 @@ app.post('/users', (req: Request, res: Response)=>{
 
     if(!id || !name || !email || !type || !age){
       statusCode = 422
-      throw new Error('Verify your params')
+      throw new Error('Verify required fields!')
     }
+
     if(isNaN(id) || isNaN(age)){
       statusCode = 422
-      throw new Error('Verify your id and age either. They both must numbers!')
+      throw new Error('Invalid id or age')
     }
+
+    const user = users.find(user=>{
+      return user.id === id
+    })
 
     const newUser: User = {
       id,
@@ -177,13 +225,44 @@ app.post('/users', (req: Request, res: Response)=>{
       age
     }
 
-    users.push(newUser)
-    res.status(201).send({message: 'User was created successfully'})
+    if(user){
+      users.push(newUser)
+      res.status(200).send({message: `User ${name} updated.`})
+    }else{
+      throw new Error('User not found!')
+    }
 
   }catch(error){
-    res.status(404).send({message: error.message})
+    res.status(statusCode).send({message: error.message})
   }
+})
 
+//=======================Delete user==============================
+app.delete('/users/:id', (req: Request, res: Response)=>{
+  let statusCode = 404
+
+  try{
+    const id = Number(req.params.id)
+
+    if(isNaN(id)){
+      statusCode = 422
+      throw new Error('Invalid id')
+    }
+
+    const index = users.findIndex(user=>{
+      return user.id === id
+    })
+
+    if(index){
+      users.splice(index, 1)
+      res.status(200).send({message: 'User deleted'})
+    }else{
+      throw new Error('Id not found!')
+    }    
+
+  }catch(error){
+    res.status(statusCode).send({message: error.message})
+  }
 })
 
 //=========================Server listening=======================
