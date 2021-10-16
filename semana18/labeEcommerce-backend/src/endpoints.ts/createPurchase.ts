@@ -22,12 +22,7 @@ export const createPurchase = async(req:Request, res:Response):Promise<any>=>{
         const purchase = new Purchase(userId, productId, productId, productName,
              description, price, quantityOfItems)
 
-        await con('user').insert({
-            id: userId,
-            name: userName,
-            email,
-            age
-        })
+        await con('user').insert(user)
 
         await con('product').insert({
             id: productId,

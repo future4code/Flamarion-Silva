@@ -15,12 +15,7 @@ export const createProdutct = async(req:Request, res:Response):Promise<any>=>{
 
         const product = new Product(id, name, description, price)
 
-        await con('product').insert({
-            id: product.getId(),
-            name: product.getName(),
-            description: product.getDescription(),
-            price: product.getPrice()
-        })
+        await con('product').insert(product)
 
         res.status(200).send('Produto enviado com sucesso!')
 

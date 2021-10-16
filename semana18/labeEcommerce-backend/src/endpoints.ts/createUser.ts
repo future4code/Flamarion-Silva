@@ -14,12 +14,7 @@ export const createUser = async(req:Request, res:Response):Promise<any>=>{
         const id = Math.random().toString(36).substr(2)
         const user = new User(id, name, email, age)
 
-        await con('user').insert({
-            id: user.getId(),
-            name: user.getName(),
-            email: user.getEmail(),
-            age: user.getAge()
-        })
+        await con('user').insert(user)
 
         res.status(200).send('Usuário criado')
 

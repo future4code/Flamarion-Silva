@@ -5,6 +5,7 @@ import { createProdutct } from './endpoints.ts/createProduct'
 import { getUsers } from './endpoints.ts/getUsers'
 import {getProducts} from "./endpoints.ts/getProducts";
 import { createPurchase } from './endpoints.ts/createPurchase'
+import { createTicket } from './endpoints.ts/createTicket'
 
 const app:Express = express()
 
@@ -15,6 +16,7 @@ app.use(cors())
 app.post('/user', createUser)
 app.post('/product', createProdutct)
 app.post('/purchase', createPurchase)
+app.post('/ticket', createTicket)
 app.get('/user', getUsers)
 app.get('/product', getProducts)
 
