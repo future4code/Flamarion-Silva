@@ -1,0 +1,10 @@
+POST http://localhost:3003/users/signup
+Content-Type: application/json
+
+{   
+    "name": "Tomy York",
+    "email": "genius@gmail.com",
+    "nickname": "creep",
+    "password": "radiohead"
+
+}
