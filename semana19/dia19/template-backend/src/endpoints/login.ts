@@ -16,7 +16,10 @@ export const login = async (
 
     // conferir se o usuário existe e a senha está correta
 
-    if (!user || user.password !== password) {
+    const comparePass = new Authenticator().compare(password, user.password)
+    
+
+    if (!user || !comparePass) {
       res.statusCode = 401 // "Unauthorized"
       throw new Error("Credenciais inválidas")
     }

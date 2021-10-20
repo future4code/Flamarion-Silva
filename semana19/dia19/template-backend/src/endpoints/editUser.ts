@@ -8,7 +8,7 @@ export default async function createUser(
 ): Promise<void> {
    try {
 
-      const { name, nickname } = req.body
+      const { name, nickname, email } = req.body
       const token = req.headers.authorization
 
       const tokenData = new Authenticator().getTokenData(token)
@@ -19,14 +19,14 @@ export default async function createUser(
         throw new Error()
       }
 
-      if (!name && !nickname) {
+      if (!name && !nickname && !email) {
          res.statusCode = 422
          res.statusMessage = "Informe o(s) novo(s) 'name' ou 'nickname'"
          throw new Error()
       }
 
       await connection('to_do_list_users')
-         .update({ name, nickname })
+         .update({ name, nickname, email })
          .where({ id: tokenData.id })
 
       res.end()
