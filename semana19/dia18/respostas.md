@@ -31,4 +31,4 @@ b) Verficar no código.
 
 ### Exercício 8
 
-a)
+a) Verificar no código
