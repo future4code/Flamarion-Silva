@@ -26,7 +26,8 @@ export const login = async (
 
     // gerar o token
     const token = new Authenticator().generateToken({
-      id: user.id
+      id: user.id,
+      role: user.role
     })
 
     // enviar a resposta

@@ -35,7 +35,8 @@ export class Authenticator {
       ) as JwtPayload
 
       return {
-        id: tokenData.id
+        id: tokenData.id,
+        role: tokenData.role
       }
 
     } catch (error) {

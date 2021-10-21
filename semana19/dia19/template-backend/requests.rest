@@ -2,10 +2,11 @@ POST http://localhost:3003/users/signup
 Content-Type: application/json
 
 {   
-    "name": "James Hetfield",
-    "email": "metallica@gmail.com",
-    "nickname": "unforgiven",
-    "password": "one"
+    "name": "Gazua Keymaster",
+    "email": "eupublicomsm@gmail.com",
+    "nickname": "Pato",
+    "password": "ehnoizqueta",
+    "role": "ADMIN"
 
 }
 
@@ -14,8 +15,8 @@ POST http://localhost:3003/users/login
 Content-Type: application/json
 
 {
-    "email": "genius@gmail.com",
-    "password": "radiohead"
+    "email": "enoiz@aeroforceone.com",
+    "password": "dreamon"
 }
 
 ### 
@@ -24,8 +25,8 @@ Content-Type: application/json
 Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjMzMGNjOWJkLTAyY2ItNGJlOC1iOTJiLTA1OWY5YTM3NzZlNCIsImlhdCI6MTYzNDcxMDAyOH0.tNfJnpjSfWhuH_sMf5QUL8Ts4Q6dbzZZs_CGR7QI-Hc
 
 {
-    "name": "Tom York",
-    "nickname": "creep",
+    "name": "Eu mesmo",
+    "nickname": "padawan",
     "email": "genius@radiohead.com"
 }
 

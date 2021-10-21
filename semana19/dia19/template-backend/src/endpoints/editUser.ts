@@ -19,6 +19,12 @@ export default async function createUser(
         throw new Error()
       }
 
+      if(tokenData.role !== 'ADMIN'){
+         res.statusCode = 403
+         res.statusMessage = 'Acesso restrito para administradores'
+         throw new Error()
+      }
+
       if (!name && !nickname && !email) {
          res.statusCode = 422
          res.statusMessage = "Informe o(s) novo(s) 'name' ou 'nickname'"
