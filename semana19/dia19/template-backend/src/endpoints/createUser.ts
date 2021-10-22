@@ -25,7 +25,7 @@ export default async function createUser(
     const [user] = await connection('to_do_list_users')
       .where({ email })
 
-            
+     console.log(user)       
     if (user) {
       res.statusCode = 409
       throw new Error('Email já cadastrado')
