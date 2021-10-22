@@ -2,9 +2,9 @@ POST http://localhost:3003/signup
 Content-Type: application/json
 
 {
-    "name": "Anderson",
-    "email": "dando@familia.com",
-    "password": "guri",
+    "name": "Kuririm",
+    "email": "kuri@familia.com",
+    "password": "eterno",
     "role": "NORMAL"
 }
 
@@ -13,19 +13,28 @@ POST http://localhost:3003/login
 Content-Type: application/json
 
 {
-    "email": "dando@familia.com",
-    "password": "guri"
+    "email": "bulma@dragonball.com",
+    "password": "hightec"
 }
 
 ###
 POST http://localhost:3003/recipe
 Content-Type: application/json
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXlsb2FkIjoiZDVhMDc0NjAtZmZmOS00OWMzLWFkYTctMTUxYTBkMmM4Nzk5IiwiaWF0IjoxNjM0ODMwNjI2LCJleHAiOjE2MzQ4NjY2MjZ9.gBA_sCxQUSCORLqR4ct0PCE2gnljYjLkuP7pZNJkcpk
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXlsb2FkIjoiYzhiNjY0MGYtY2ZlMi00ODE5LThmMjUtNzlmY2UyZWUwMTEyIiwiaWF0IjoxNjM0OTI5ODg3LCJleHAiOjE2MzQ5NjU4ODd9.kqM0h2zzSbBNBQ-1Uw6MsFyZX1RoAkUA6a3L1LKze4s
 
 {
-    "title": "bolo",
-    "description": "vide a bula"
+    "title": "Chocolate de circuito integrado",
+    "description": "estude muito"
 }
 
 ###
 get http://localhost:3003/user/profile
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXlsb2FkIjoiYzhiNjY0MGYtY2ZlMi00ODE5LThmMjUtNzlmY2UyZWUwMTEyIiwiaWF0IjoxNjM0OTI5ODg3LCJleHAiOjE2MzQ5NjU4ODd9.kqM0h2zzSbBNBQ-1Uw6MsFyZX1RoAkUA6a3L1LKze4s
+
+###
+GET http://localhost:3003/user/c8b6640f-cfe2-4819-8f25-79fce2ee0112
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXlsb2FkIjoiYzhiNjY0MGYtY2ZlMi00ODE5LThmMjUtNzlmY2UyZWUwMTEyIiwiaWF0IjoxNjM0OTI5ODg3LCJleHAiOjE2MzQ5NjU4ODd9.kqM0h2zzSbBNBQ-1Uw6MsFyZX1RoAkUA6a3L1LKze4s
+
+###
+get http://localhost:3003/recipe/03bbdbe2-ff74-4329-9ec7-466069ebfe2f
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXlsb2FkIjoiYzhiNjY0MGYtY2ZlMi00ODE5LThmMjUtNzlmY2UyZWUwMTEyIiwiaWF0IjoxNjM0OTMwNTQ3LCJleHAiOjE2MzQ5NjY1NDd9.y3f3cCLeSSbf8S06hkwj2u_YiiF_Smx90aA7Lg-lBzI
