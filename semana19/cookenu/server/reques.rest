@@ -1,0 +1,31 @@
+POST http://localhost:3003/signup
+Content-Type: application/json
+
+{
+    "name": "Anderson",
+    "email": "dando@familia.com",
+    "password": "guri",
+    "role": "NORMAL"
+}
+
+###
+POST http://localhost:3003/login
+Content-Type: application/json
+
+{
+    "email": "dando@familia.com",
+    "password": "guri"
+}
+
+###
+POST http://localhost:3003/recipe
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXlsb2FkIjoiZDVhMDc0NjAtZmZmOS00OWMzLWFkYTctMTUxYTBkMmM4Nzk5IiwiaWF0IjoxNjM0ODMwNjI2LCJleHAiOjE2MzQ4NjY2MjZ9.gBA_sCxQUSCORLqR4ct0PCE2gnljYjLkuP7pZNJkcpk
+
+{
+    "title": "bolo",
+    "description": "vide a bula"
+}
+
+###
+get http://localhost:3003/user/profile
