@@ -16,13 +16,13 @@ export const getRecipe = async(req:Request, res:Response):Promise<void>=>{
     }
 
 
-    const [recipe] = await con.raw(`select *
-      from recipes where id = '${req.params.id}'`)
+    const [recipe] = await con.raw(`select title, description,
+    createdAt, creator from recipes where id = '${req.params.id}'`)
 
 
-    if(tokenData !== recipe[0].user_id){
+    if(recipe.length === 0){
       statusCode = 404
-      throw new Error('Usúario não encontrado.')
+      throw new Error('Receita não encontrada.')
     }
 
 

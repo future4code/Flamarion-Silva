@@ -12,6 +12,11 @@ description varchar(255) NOT NULL,
 date DATE NOT NULL,
 user_id VARCHAR(50) NOT NULL,
 FOREIGN KEY(user_id) REFERENCES users(id));
+
+CREATE Table followers(id VARCHAR(255) PRIMARY KEY NOT NULL,
+follower varchar(50) not null,
+user_id varchar(255) not null,
+FOREIGN KEY(user_id) REFERENCES users(id));
 `)
 .then(()=>{
     console.log('Tabelas criadas')

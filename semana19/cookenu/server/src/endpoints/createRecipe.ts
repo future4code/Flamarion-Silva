@@ -22,7 +22,10 @@ export const recipe = async(req:Request, res:Response):Promise<void>=>{
           id: tokenData
         })
 
-        console.log(user)
+        if(!user){
+            statusCode = 404
+            throw new Error('Usuário não encontrado')
+        }
 
         const id = new Authentication().generateId()
 
@@ -31,7 +34,8 @@ export const recipe = async(req:Request, res:Response):Promise<void>=>{
             title,
             description,
             createdAt: new Date(),
-            user_id: tokenData
+            user_id: tokenData,
+            creator: user.name
         })
 
         res.status(200).send('Receita adicionada')

@@ -15,11 +15,10 @@ export const getProfileUser = async(req:Request, res:Response):Promise<void>=>{
         throw new Error('Token inválido, expirado ou ausendo dos headers')
       }
 
-      const [user] = await con.raw(`select id, name, email from users
+      const [user] = await con.raw(`select name, email, role from users
         where id = '${req.params.id}'`)
-
-
-      if(tokenData !== user[0].id){
+console.log(user.length)
+      if(user.length === 0){
         statusCode = 404
         throw new Error('Usúario não encontrado.')
       }
