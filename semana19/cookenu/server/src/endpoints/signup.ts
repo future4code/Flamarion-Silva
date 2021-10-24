@@ -9,6 +9,7 @@ export const signup = async(req:Request, res:Response):Promise<void>=>{
 
         const {name, email, password, role} = req.body
 
+
         if(!name || !email || !password){
             statusCode = 401
             throw new Error('Preencha todos os campos.')
@@ -40,7 +41,7 @@ export const signup = async(req:Request, res:Response):Promise<void>=>{
         const token = auth.generateToken(id)
 
 
-        res.status(200).send({email, role, access_token: token} )
+        res.status(200).send({id, email, role, access_token: token} )
 
     }catch(e:any){
         res.status(400).send(e.message || e.sqlMessage)

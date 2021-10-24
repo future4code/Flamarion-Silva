@@ -20,7 +20,7 @@ export const recipesFollowedUser = async(req:Request, res:Response)
         const [recipes] = await con.raw(`
         select title, description, createdAt,
         recipes.creator from followers join recipes 
-        where followers.user_id = recipes.user_id;
+        where followers.followed_id = recipes.user_id;
         `)
         
         res.status(200).send(recipes)

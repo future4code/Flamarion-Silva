@@ -28,7 +28,7 @@ export const login = async(req:Request, res:Response):Promise<void>=>{
 
         const token = auth.generateToken(user.id)
 
-        res.status(200).send({access_token: token})
+        res.status(200).send({id: user.id, access_token: token})
 
     }catch(e:any){
         res.status(statusCode).send(e.message || e.sqlMessage)

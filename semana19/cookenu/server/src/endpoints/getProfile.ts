@@ -2,7 +2,7 @@ import { Request, Response } from 'express'
 import { Authentication } from "../services/Authentication"
 import { con } from "../data/connection";
 
-export const getProfileUser = async(req:Request, res:Response):Promise<void>=>{
+export const getProfile= async(req:Request, res:Response):Promise<void>=>{
   let statusCode = 400
   try {
 
@@ -16,7 +16,7 @@ export const getProfileUser = async(req:Request, res:Response):Promise<void>=>{
       }
 
       const [user] = await con.raw(`select name, email, role from users
-        where id = '${req.params.id}'`)
+        where id = '${tokenData}'`)
 
       if(user.length === 0){
         statusCode = 404

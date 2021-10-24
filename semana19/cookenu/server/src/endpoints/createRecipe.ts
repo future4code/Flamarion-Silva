@@ -11,10 +11,12 @@ export const recipe = async(req:Request, res:Response):Promise<void>=>{
         const tokenData = new Authentication().getTokenData(token as string)
 
         if(!token){
-          throw new Error('Token inválido, expirado ou ausendo dos headers')
+            statusCode = 403
+            throw new Error('Token inválido, expirado ou ausendo dos headers')
         }
 
         if(!title || !description){
+            statusCode = 403
             throw new Error('Preencha os campos.')
         }
 

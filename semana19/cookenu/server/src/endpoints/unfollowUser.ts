@@ -36,9 +36,6 @@ export const unfollowUser = async(req:Request, res:Response):Promise<void>=>{
             throw new Error('Usuário não encontrado.')
         }
 
-        console.log(req.params.id)
-        console.log(tokenData)
-
         await con.raw(`delete from followers 
         where followed_id = '${req.params.id}'`)
 
