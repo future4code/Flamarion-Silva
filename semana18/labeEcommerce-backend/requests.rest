@@ -1,0 +1,44 @@
+POST     http://localhost:3003/purchase
+Content-Type: application/json
+
+{
+    "productName": "coisa",
+    "userName": "coisinho",
+    "email": "tmj@gmail.com",
+    "age": 37,
+    "description": "pa coisar",
+    "price": 150,
+    "quantityOfItems": 2
+}
+
+###
+
+POST http://localhost:3003/product
+Content-Type: application/json
+
+{
+    "name": "roupas",
+    "description": "pra vestir",
+    "price": 150
+}
+
+###
+
+POST http://localhost:3003/ticket
+Content-Type: application/json
+
+{
+    "name": "Tour em Paris",
+    "description": "Intercâmbio",
+    "price": 15.000,
+    "origin": "Brasil",
+    "destiny": "Paris"
+
+}
+
+###
+
+GET http://localhost:3003/user
+
+###
+GET http://localhost:3003/product
