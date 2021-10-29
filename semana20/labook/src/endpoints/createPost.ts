@@ -10,7 +10,7 @@ export const createPost = async(req:Request, res:Response)
   try{
 
     const token = req.headers.authorization
-    const tokenData = new Authentication().tokenData(token)
+    const tokenData = new Authentication().tokenData(token as string)
 
     if(!token){
       statusCode = 401
@@ -18,7 +18,7 @@ export const createPost = async(req:Request, res:Response)
     }
 
     const [user] = await connection('labook_users').where({
-      id: tokenData
+      id: tokenData.payload
     })
 
     if(!user){
@@ -46,7 +46,7 @@ export const createPost = async(req:Request, res:Response)
       description,
       type,
       created_at: new Date(),
-      author_id: tokenData
+      author_id: tokenData.payload
     })
 
 

@@ -14,7 +14,7 @@ export class Authentication {
   token = (payload:string)=>{
     const generateToken = jwt.sign(
       {payload},
-      process.env.JWT_KEY,
+      process.env.JWT_KEY as string,
       {expiresIn: '10h'}
     )
 
@@ -25,10 +25,10 @@ export class Authentication {
     try{
       const verifyToken = jwt.verify(
         token,
-        process.env.JWT_KEY
+        process.env.JWT_KEY as string
       )
 
-      return verifyToken.payload
+      return verifyToken
     }catch(e:any){
       console.log(e)
     }

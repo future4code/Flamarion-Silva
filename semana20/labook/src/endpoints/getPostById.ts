@@ -10,7 +10,7 @@ export const getPostById = async(req:Request, res:Response)
   try{
 
     const token =  req.headers.authorization
-    const tokenData = new Authentication().tokenData(token)
+    const tokenData = new Authentication().tokenData(token as string)
 
     const [post] = await connection('labook_posts').where({
       id: req.params.id
@@ -27,7 +27,7 @@ export const getPostById = async(req:Request, res:Response)
     }
 
     const [user] = await connection('labook_users').where({
-      id: tokenData
+      id: tokenData.payload
     })
 
     if(!user){
