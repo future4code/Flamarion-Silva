@@ -1,0 +1,32 @@
+POST http://localhost:3003/users/signup
+Content-Type: application/json
+
+{
+    "name": "Fran",
+    "nickname": "dipreto",
+    "email": "noiz@gmail.com",
+    "password": "vai"
+}
+
+###
+POST http://localhost:3003/users/login
+Content-Type: application/json
+
+{
+    "email": "palaquevai@gmail.com",
+    "password": "senha"
+}
+
+###
+PUT  http://localhost:3003/users
+Content-Type: application/json
+Authorization: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijc2OWJmYjM3LTM1ZWEtNDAwNi1iZjdjLTk2NGFmY2Q2NzQ4OSIsImlhdCI6MTYzNDU5NTM5NiwiZXhwIjoxNjM0NTk1NDU2fQ.KaQmWxTw7BZx60rDEz-bgjShIgArv1Xv3j4snp3YMUs"
+
+{
+    "name": "Flamarion",
+    "nickname": "cem pila"
+}
+
+### 
+GET http://localhost:3003/users/769bfb37-35ea-4006-bf7c-964afcd67489
+Authorization: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijc2OWJmYjM3LTM1ZWEtNDAwNi1iZjdjLTk2NGFmY2Q2NzQ4OSIsImlhdCI6MTYzNDU5OTc2MywiZXhwIjoxNjM0NjM1NzYzfQ.TUqYdGx_4JH_kcbsA1iHofd8FpEWr4MJqsU0f9kF0Wc"
