@@ -1,0 +1,33 @@
+POST http://localhost:3003/signup
+Content-Type: application/json
+
+{
+    "name": "test",
+    "email": "test@.com",
+    "password": "testing"
+}
+
+---
+
+POST http://localhost:3003/login
+Content-Type: application/json
+
+{
+  "email": "test@.com",
+  "password": "testing"
+}
+
+---
+POST http://localhost:3003/post
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXlsb2FkIjoiMTE0NzdjN2UtNTBkZC00NDM5LTgzM2EtMjI4ZTgxZjY3MmE4IiwiaWF0IjoxNjM1NTI3NjQ1LCJleHAiOjE2MzU1NjM2NDV9.ubeuv5RZhdjSMiytSc-0sZ3yDmu04zJxtXnKRRr2ACg
+Content-Type: application/json
+
+{
+  "photo": "natureza",
+  "description": "vida",
+  "type": "event"
+}
+
+---
+GET http://localhost:3003/post/43c597e1-2f2b-4776-b510-dbd11521c2db
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXlsb2FkIjoiMTE0NzdjN2UtNTBkZC00NDM5LTgzM2EtMjI4ZTgxZjY3MmE4IiwiaWF0IjoxNjM1NTI3NjQ1LCJleHAiOjE2MzU1NjM2NDV9.ubeuv5RZhdjSMiytSc-0sZ3yDmu04zJxtXnKRRr2ACg
