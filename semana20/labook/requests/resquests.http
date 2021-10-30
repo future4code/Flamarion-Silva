@@ -2,32 +2,36 @@ POST http://localhost:3003/signup
 Content-Type: application/json
 
 {
-    "name": "test",
-    "email": "test@.com",
-    "password": "testing"
+    "name": "WORLD",
+    "email": "all@everything.com",
+    "password": "helloToMe"
 }
 
 ---
 
-POST http://localhost:3003/login
+POST https://mydeploys.herokuapp.com/login
 Content-Type: application/json
 
 {
-  "email": "test@.com",
+  "email": "mara@mara.com",
   "password": "testing"
 }
 
 ---
-POST http://localhost:3003/post
+POST https://mydeploys.herokuapp.com/post
 Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXlsb2FkIjoiMTE0NzdjN2UtNTBkZC00NDM5LTgzM2EtMjI4ZTgxZjY3MmE4IiwiaWF0IjoxNjM1NTI3NjQ1LCJleHAiOjE2MzU1NjM2NDV9.ubeuv5RZhdjSMiytSc-0sZ3yDmu04zJxtXnKRRr2ACg
 Content-Type: application/json
 
 {
-  "photo": "natureza",
-  "description": "vida",
+  "photo": "Agora noiz tá on",
+  "description": "Bateu certo",
   "type": "event"
 }
 
 ---
-GET http://localhost:3003/post/43c597e1-2f2b-4776-b510-dbd11521c2db
+GET https://mydeploys.herokuapp.com/post/43c597e1-2f2b-4776-b510-dbd11521c2db
 Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXlsb2FkIjoiMTE0NzdjN2UtNTBkZC00NDM5LTgzM2EtMjI4ZTgxZjY3MmE4IiwiaWF0IjoxNjM1NTI3NjQ1LCJleHAiOjE2MzU1NjM2NDV9.ubeuv5RZhdjSMiytSc-0sZ3yDmu04zJxtXnKRRr2ACg
+
+---
+POST http://localhost:3003/friend/ebe32147-f018-4d4d-8832-d470d35aff37
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXlsb2FkIjoiMTM5N2NjOGYtODE3Mi00ODYxLWFhZWQtOTVjZjlhZjU3YTg4IiwiaWF0IjoxNjM1NjEwNjg5LCJleHAiOjE2MzU2NDY2ODl9._Yn-xi2niCkzCLInVjtDmZ-gpgI5LNu4fcA462uG698

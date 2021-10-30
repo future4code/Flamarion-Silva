@@ -22,14 +22,14 @@ export const login = async(req:Request, res:Response)
 
     if(!user){
       statusCode = 401
-      throw new Error('Dados inválidos(email)')
+      throw new Error('Dados inválidos')
     }
 
     const compare = new Authentication().compare(password, user.password)
 
     if(!compare){
       statusCode = 401
-      throw new Error('Dados inválidos(senha)')
+      throw new Error('Dados inválidos')
     }
 
     const token = new Authentication().token(user.id)

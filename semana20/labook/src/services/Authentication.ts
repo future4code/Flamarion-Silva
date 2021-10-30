@@ -1,5 +1,5 @@
 import bcrypt from 'bcryptjs'
-import jwt from 'jsonwebtoken'
+import jwt, {JwtPayload} from 'jsonwebtoken'
 import { v4 } from "uuid"
 import {config} from 'dotenv'
 
@@ -31,6 +31,7 @@ export class Authentication {
       return verifyToken
     }catch(e:any){
       console.log(e)
+      return e
     }
   }
 

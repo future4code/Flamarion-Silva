@@ -18,13 +18,21 @@ export const signup = async(req:Request, res:Response)
 
     const id = new Authentication().idGenerator()
     const hash = new Authentication().hash(password)
+    const distinct = Math.random().toString(36).substring(2) + Date.now()
 
     await connection('labook_users').insert({
       id,
       name,
       email,
-      password: hash
+      password: hash,
+      table_friends: distinct
     })
+
+    await connection.raw(`
+      create table ${distinct}(id varchar(255) primary key not null,
+      friend varchar(50), friend_id varchar(255) unique,
+      beginning date)      
+    `)
 
     const token = new Authentication().token(id)
 
