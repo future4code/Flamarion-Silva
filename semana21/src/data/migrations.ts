@@ -1,13 +1,45 @@
-create table pokemonGo(id varchar(255) primary key not null,
-pokedex_number varchar(255) not null name varchar(255) not null, generation vachar(255) null,
-evolution_stage varchar(255) not null, evolved varchar(255) not null,
-familyID varchar(255) not null, cross_gen varchar(255) not null,
-type1 varchar(255) not null, type2 varchar(255) not null,
-weather1 varchar(255) not null, weather2 varchar(255) not null,
-stat_total varchar(255) not null, atk varchar(255) not null,
-def varchar(255) not null, sta int not null, legendary vachar(255) not null,
-aquireable varchar(255) not null, spawns varchar(255) not null, regional varchar(255) not null,
-raidable varchar(255) not null, hatchable varchar(255) not null, shiny varchar(255) not null,
-nest varchar(255) not null, new varchar(255) not null, notgettable varchar(255) not null,
-future_evolve varchar(255) not null, cp40 varchar(255) not null,
-cp30 varchar(255) not null)
+import { con } from './connection'
+
+con.raw(`
+  create table pokemonGo(
+    id varchar(255) primary key not null,
+    Name varchar(255) not null,
+    Pokedex_Number varchar(255) not null,
+    Img_name varchar(255) not null,
+    Generation varchar(255) not null,
+    Evolution_Stage varchar(255) not null,
+    Evolved varchar(255) not null,
+    FamilyID varchar(255) not null,
+    Cross_Gen varchar(255) not null,
+    Type1 varchar(255) not null,
+    Type2 varchar(255) not null,
+    Weather1 varchar(255) not null,
+    Weather2 varchar(255) not null,
+    STAT_TOTAL varchar(255) not null,
+    ATK varchar(255) not null,
+    DEF varchar(255) not null,
+    STA varchar(255) not null,
+    Legendary varchar(255) not null,
+    Aquireable varchar(255) not null,
+    Spawns varchar(255) not null,
+    Regional varchar(255) not null,
+    Raidable varchar(255) not null,
+    Hatchable varchar(255) not null,
+    Shiny varchar(255) not null,
+    Nest varchar(255) not null,
+    New varchar(255) not null,
+    NotGettable varchar(255) not null,
+    Future_Evolve varchar(255) not null,
+    CP40 varchar(255) not null,
+    CP39 varchar(255) not null
+  );
+`)
+.then(()=>{
+  console.log('Table was created successfuly')
+})
+.catch(err=>{
+  console.log('Something went wrong:', err)
+})
+.finally(()=>{
+  con.destroy()
+})
