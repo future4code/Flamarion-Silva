@@ -2,73 +2,14 @@ POST http://localhost:3003/signup
 Content-Type: application/json
 
 {
-    "name": "Paty Rocha",
-    "email": "nenafesta@gmail.com",
-    "password": "myheart"
+
 }
 
 ---
 
-POST http://localhost:3003/login
-Content-Type: application/json
 
-{
-  "email": "nenafesta@gmail.com",
-  "password": "mainha"
-}
-
----
-POST http://localhost:3003/post
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXlsb2FkIjoiYjFkMDBhMTctN2Q1Mi00NWEzLTgyOTMtYzM1NGY1MDA1OTFhIiwiaWF0IjoxNjM1NjIyMzk2LCJleHAiOjE2MzU2NTgzOTZ9.7rUsPnBg_b1H38429YO4AmAGDKVPiF0v90qmyvKG_YA
-Content-Type: application/json
-
-{
-  "photo": "Rede social em construção",
-  "description": "testando online",
   "type": "event"
 }
 
 ---
-GET http://localhost:3003/post/43c597e1-2f2b-4776-b510-dbd11521c2db
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXlsb2FkIjoiMTE0NzdjN2UtNTBkZC00NDM5LTgzM2EtMjI4ZTgxZjY3MmE4IiwiaWF0IjoxNjM1NTI3NjQ1LCJleHAiOjE2MzU1NjM2NDV9.ubeuv5RZhdjSMiytSc-0sZ3yDmu04zJxtXnKRRr2ACg
 
----
-GET http://localhost:3003/postauthor
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXlsb2FkIjoiMzhjN2MzM2UtZWU2MC00NGY0LWJhYjMtOWY5ZDhkMDhjOGFjIiwiaWF0IjoxNjM1NjkyODY3LCJleHAiOjE2MzU3Mjg4Njd9.GSQQ5yHR_PzonBMUFUEJbDsG6xCUTUP57MxBfMs2N1o
-
----
-GET http://localhost:3003/user/0711a5b8-fee7-4efe-bd88-dd9dae5dd85d
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXlsb2FkIjoiMzhjN2MzM2UtZWU2MC00NGY0LWJhYjMtOWY5ZDhkMDhjOGFjIiwiaWF0IjoxNjM1NjU5NzExLCJleHAiOjE2MzU2OTU3MTF9.W5SGv2ES2mK23qVVUm1ntB8HUCUXVLZvHYfDazgtJ8w
-
----
-GET http://localhost:3003/yourself
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXlsb2FkIjoiMzhjN2MzM2UtZWU2MC00NGY0LWJhYjMtOWY5ZDhkMDhjOGFjIiwiaWF0IjoxNjM1NjU5NzExLCJleHAiOjE2MzU2OTU3MTF9.W5SGv2ES2mK23qVVUm1ntB8HUCUXVLZvHYfDazgtJ8w
----
-POST http://localhost:3003/friend/e6e12778-36de-4295-aee9-24d6677d9700
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXlsb2FkIjoiZGU3ZDlmMjktOTBjNi00Y2JhLWEwYzMtYmVmYjlkOTczZjQ4IiwiaWF0IjoxNjM1NzIyMzkxLCJleHAiOjE2MzU3NTgzOTF9.SMJhRVQTlMVK0uHYcH6ft9Di3Tj4zo9x8rDtcqmMe4o
-
----
-DELETE http://localhost:3003/friend/b1d00a17-7d52-45a3-8293-c354f500591a
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXlsb2FkIjoiMzhjN2MzM2UtZWU2MC00NGY0LWJhYjMtOWY5ZDhkMDhjOGFjIiwiaWF0IjoxNjM1NjQ2ODI1LCJleHAiOjE2MzU2ODI4MjV9.j_uja2hMlRfnqDRnv9WKHsbQp4qFV8UNMKO24GZCE0U
-
----
-GET http://localhost:3003/feeds
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXlsb2FkIjoiYjFkMDBhMTctN2Q1Mi00NWEzLTgyOTMtYzM1NGY1MDA1OTFhIiwiaWF0IjoxNjM1NzA0MzM1LCJleHAiOjE2MzU3NDAzMzV9.2Bzzd_IkGnKvQFc-peBLmJAhZk4bBF_OLhXTcCQvL7Q
-
----
-POST http://localhost:3003/password
-Content-Type: application/json
-
-{
-  "email": "gazua@keymaster.com"
-}
-
----
-POST http://localhost:3003/updatekey
-Content-Type: application/json
-
-{
-  "email": "nenafesta@gmail.com",
-  "password": "mainha",
-  "passConfirm": "mainha"
-}

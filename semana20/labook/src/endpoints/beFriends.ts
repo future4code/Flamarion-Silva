@@ -45,12 +45,6 @@ export const beFriends = async(req:Request, res:Response)
       beginning: new Date()
     })
 
-    await connection(friend.table_friends).insert({
-      id,
-      friend: user.name,
-      friend_id: user.id,
-      beginning: new Date()
-    })
 
 
     res.status(200).send(`Vocẽ e ${friend.name} agora são amigos`)

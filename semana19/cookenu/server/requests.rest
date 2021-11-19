@@ -1,0 +1,98 @@
+POST http://localhost:3003/signup
+Content-Type: application/json
+
+{
+    "name": "Nena",
+    "email": "mainha@familia.com",
+    "password": "rainha",
+    "role": "ADMIN"
+}
+
+###
+POST http://localhost:3003/login
+Content-Type: application/json
+
+{
+    "email": "teste@gmail.com",
+    "password": "nova"
+}
+
+###
+POST http://localhost:3003/recipe
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXlsb2FkIjoiNmU1ZDczZjItMDM3ZC00MjY5LTgwODMtN2M3YmYxNjlmNWNlIiwiaWF0IjoxNjM1MDI0NTczLCJleHAiOjE2MzUwNjA1NzN9.sjhEObBOLufNeZ1SNHQKZqXpZpkVqavA0zSjry_uchI
+
+{
+    "title": "teste",
+    "description": "teste"
+}
+
+###
+GET http://localhost:3003/user/7a85db86-b924-4857-b735-64ec478d6d07
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXlsb2FkIjoiN2E4NWRiODYtYjkyNC00ODU3LWI3MzUtNjRlYzQ3OGQ2ZDA3IiwiaWF0IjoxNjM0OTYyMzY2LCJleHAiOjE2MzQ5OTgzNjZ9.JBc0xwJXoTlMwt2e2l8A7IPXX8UI0sjlNQc0dUsgnc0
+
+###
+get http://localhost:3003/recipe/b776aff8-cf48-4b9a-a02a-866a664f7168
+Authorization: sInR5cCI6IkpXVCJ9.eyJwYXlsb2FkIjoiYzhiNjY0MGYtY2ZlMi00ODE5LThmMjUtNzlmY2UyZWUwMTEyIiwiaWF0IjoxNjM0OTMwNTQ3LCJleHAiOjE2MzQ5NjY1NDd9.y3f3cCLeSSbf8S06hkwj2u_YiiF_Smx90aA7Lg-lBzI
+
+###
+post http://localhost:3003/follow/6e5d73f2-037d-4269-8083-7c7bf169f5ce
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXlsb2FkIjoiMGJkZWUxNTAtYjI5My00MzcyLWJmODUtMmU5Y2NjN2JiNDY5IiwiaWF0IjoxNjM1MDI1MTIwLCJleHAiOjE2MzUwNjExMjB9.AERt4BLsLm89V0I4uiaJubcqnFQRwFVNIY-ViJchDpw
+
+
+###
+DELETE  http://localhost:3003/unfollow/
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXlsb2FkIjoiN2E4NWRiODYtYjkyNC00ODU3LWI3MzUtNjRlYzQ3OGQ2ZDA3IiwiaWF0IjoxNjM0OTYwNjM5LCJleHAiOjE2MzQ5OTY2Mzl9.8-9vUETcL3XAhnAj0R0aBKO_GIoR7WnZysfgx6TAFCA
+
+###
+GET http://localhost:3003/feed
+Authorization: .eyJwYXlsb2FkIjoiZGZiZGVlMDItNjBkMi00NWNmLWEwYTUtYmE2ZGQ5MjFmNzRhIiwiaWF0IjoxNjM0OTQzMDExLCJleHAiOjE2MzQ5NzkwMTF9.5XU2xwo0VVse92YDJy3VF_xwAuAxnOmV097kST6-oIQ
+
+###
+PUT http://localhost:3003/editrecipe/34892ea4-67e7-4f59-9fa8-c3eb938a4817
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXlsb2FkIjoiYmJhNDM1YjEtOTBiZC00M2MzLWI1YzYtNGUxMjEzMzBjZTIxIiwiaWF0IjoxNjM0OTUzMzA3LCJleHAiOjE2MzQ5ODkzMDd9.QMKq9I-yAY7x_qQVMHtScYzHucleozD8zqSqqMC0_RY
+
+{
+    "title": "Danete caseiro",
+    "description": "lorem ipsum"
+}
+
+###
+DELETE http://localhost:3003/deleterecipe/c5052-89da-4cf4-a732-e115f710ccf7
+Authorization: 23
+
+###
+POST http://localhost:3003/passrescue
+Content-Type: application/json
+
+{
+    "email": "mesmo245@gmail.com"
+}
+
+###
+DELETE http://localhost:3003/user/b3b1c6ab-bbdb-4104-9672-b5e1e05a42c6
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXlsb2FkIjoiNmU1ZDczZjItMDM3ZC00MjY5LTgwODMtN2M3YmYxNjlmNWNlIiwiaWF0IjoxNjM0OTk3NDg3LCJleHAiOjE2MzUwMzM0ODd9.qqNCimChD4O1xnlw0TwaaE5jgLSUTdlciXNcqlsO64w
+
+###
+GET http://localhost:3003/allusers
+
+###
+GET http://localhost:3003/allrecipes
+
+###
+GET http://localhost:3003/allfollowers
+
+###
+POST http://localhost:3003/rescue
+Content-Type: application/json
+
+{
+    "password": "nova" 
+}
+
+### 
+get http://localhost:3003/myprofile
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXlsb2FkIjoiNjYwNWFiMGItODMyZi00NmE1LTg2MWUtZGFhZTI1YWM1NzE2IiwiaWF0IjoxNjM1MDg5Mjc5LCJleHAiOjE2MzUxMjUyNzl9.a0BLVQa9Ikso5xIdWIIDWXJh4Rs3fpbITevxSVQbrGY
