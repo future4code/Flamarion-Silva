@@ -1,0 +1,12 @@
+GET http://localhost:3003/pokemons
+
+---
+POST http://localhost:3003/pokebyname
+Content-Type: application/json
+
+{
+  "name": "Wartortle"
+}
+
+---
+GET http://localhost:3003/allpokes
